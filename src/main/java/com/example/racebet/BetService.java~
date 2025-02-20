@@ -34,7 +34,7 @@ public class BetService {
 
         car = car.toLowerCase();
         if (!isValidCar(car)) {
-            return Map.of("error: invalid car brand", 0.0);
+            return Map.of("error", 0.0);
         }
 
         return Map.of(car, bets.getOrDefault(car, 0.0));

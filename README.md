@@ -20,7 +20,13 @@ This API allows users to place bets on car races and retrieve information about 
   - `car` (String, optional): The brand of the car to retrieve bet information for. If not provided, information for all cars will be returned.
 
 - **Response:**
-  - **Success (200):** Returns a string message with the total bets placed on a specific car, or all cars if no car brand is specified. Returns an error message if the car brand is invalid or no bets have been placed.
+- **Success (200):** Returns a map with the total bets placed on a specific car, or all cars if no car brand is specified. Returns a map with an error message and a default value of 0.0 if the car brand is invalid or no bets have been placed.    
+  ```json
+    {
+      "bmw": 300.0,
+      "ferrari": 300.0
+    }
+    ```
 
 ### Running the Application
 
@@ -41,14 +47,14 @@ mvn spring-boot:run
 **Place bet:**
 
 ```sh
-curl  POST "http://localhost:8080/api/place?car=Ferrari&amount=100"
+curl  POST "http://localhost:8080/api/place?car=ferrari&amount=100"
 ```
 
 **Fetch bet info:**
 
 *Fetch bet info with car parameter:*
 ```sh
-curl "http://localhost:8080/api/info?car=Ferrari"
+curl "http://localhost:8080/api/info?car=ferrari"
 ```
 *Fetch all bet info:*
 ```sh

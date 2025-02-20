@@ -1,7 +1,8 @@
 package com.example.racebet;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -19,7 +20,7 @@ public class BetController {
     }
 
     @GetMapping("/info")
-    public String getBets(@RequestParam(required = false) String car) {
+    public Map<String, Double> getBets(@RequestParam(required = false) String car) {
         return betService.getBets(car);
     }
 }
